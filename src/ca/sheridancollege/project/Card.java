@@ -19,6 +19,7 @@ public abstract class Card {
         DIAMONDS, CLUBS, HEARTS, SPADES
     };
 
+    //ACE 11 represents Ace's value as 11, while Ace1 refers to Ace's value as one
     public enum Order {
         ACE1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ACE11, JACK, QUEEN, KING
     };
@@ -27,6 +28,7 @@ public abstract class Card {
 
     private final Order order;
 
+    //Card for both suits and the order of the cards
     public Card(Suit s, Order o) {
         suit = s;
         order = o;
@@ -48,5 +50,4 @@ public abstract class Card {
      */
     @Override
     public abstract String toString();
-
 }
