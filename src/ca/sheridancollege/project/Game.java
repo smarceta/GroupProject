@@ -3,6 +3,9 @@
  * Students can modify and extend to implement their game.
  * Add your name as a modifier and the date!
  */
+/**
+ * Get as close to 21 without going over
+ */
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
