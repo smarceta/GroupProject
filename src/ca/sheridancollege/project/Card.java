@@ -15,6 +15,14 @@ package ca.sheridancollege.project;
 public abstract class Card {
     //default modifier for child classes
 
+    public enum Suit {
+        DIAMONDS, CLUBS, HEARTS, SPADES
+    };
+
+    public enum Cards {
+        ACE,
+    }
+
     /**
      * Students should implement this method for their specific children classes
      *
