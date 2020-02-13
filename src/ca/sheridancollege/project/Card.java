@@ -19,8 +19,25 @@ public abstract class Card {
         DIAMONDS, CLUBS, HEARTS, SPADES
     };
 
-    public enum Cards {
-        ACE,
+    public enum Order {
+        ACE1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ACE11, JACK, QUEEN, KING
+    };
+
+    private final Suit suit;
+
+    private final Order order;
+
+    public Card(Suit s, Order o) {
+        suit = s;
+        order = o;
+    }
+
+    public Suit getSuit() {
+        return this.suit;
+    }
+
+    public Order getOrder() {
+        return this.order;
     }
 
     /**
