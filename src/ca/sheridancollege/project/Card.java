@@ -4,7 +4,6 @@
  * Add your name as a modifier and the date!
  */
 package ca.sheridancollege.project;
-import java.util.ArrayList;
 
 /**
  * A class to be used as the base Card class for the project. Must be general
@@ -14,27 +13,22 @@ import java.util.ArrayList;
  */
 public abstract class Card 
 {
-   private ArrayList suit = new ArrayList();
-    
-       
-       //"Clubs", "Spades", "Diamonds", "Hearts"};
-   
-    private String[] rank = {"Ace", "King", "Queen", "Jack", "10",
-                                   "9", "8", "7", "6", "5", "4", "3", "2"};
+    private String rank; 
+    private String suit; 
     
     Card(){}
     
     /**
      * @return the value
      */
-    public int getRank() {
+    public String getRank() {
         return rank;
     }
 
     /**
-     * @param value the value to set
+     * @param rank
      */
-    public void setRank(int rank) {
+    public void setRank(String rank) {
         this.rank = rank;
         
     }

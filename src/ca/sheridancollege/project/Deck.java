@@ -10,37 +10,49 @@ import java.util.Collections;
 
 /**
  * A concrete class that represents any grouping of cards for a Game.
- * HINT, you might want to subclass this more than once.
- * The group of cards has a maximum size attribute which is flexible for reuse.
  * @author dancye
  */
 public class Deck 
 {
    
     //The group of cards, stored in an ArrayList
-    private ArrayList <Card> cards;
-    private int size;//the size of the grouping
+    private ArrayList <Card> deck;
+    final String[] suit = {"Spades", "Diamonds", "Clubs", "Hearts"};
+    final String[] rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q",
+                           "K", "A"};
     
-   
     
+    private int size = 52;//the size of the grouping    
     
     public Deck(int givenSize)
     {
         size = givenSize;
     }
     
-   //incomplete - need to import card/enum for this to work - but logic should work 
+   
     public void fillDeck(){
-        int i = 0;
+      
+        deck = new ArrayList<Card>();
         
-        for (Suit s : Suit.values()) {
-           
-            for (Rank r : Rank.values()) {
-                cards= new Card(r,s);
-                 i++;  
+        for(int i = 0; i < rank.length; i++){
+            
+            for(int j =0; j < suit.length; j++){
+                
+            deck.add(new BlackjackCard(rank[i], suit[j])); 
+            
             }
-        }
+         }
+        
+        
     }
+    
+    //TESTING TO SEE IF IT WORKS - Remove this later
+    public void printFullDeck(){
+        
+    for(Card x : deck){
+        System.out.println(x.getSuit() + " of " + x.getRank());
+    }
+}
     
     
     /**
@@ -49,14 +61,18 @@ public class Deck
      */
     public ArrayList<Card> showCards()
     {
-        return cards;
+        return deck;
     }
     
     public void shuffle()
     {
-        Collections.shuffle(cards);
+        Collections.shuffle(deck);
     }
-
+    
+    public void Deal(int cardAmount){
+     
+    }
+    
     /**
      * @return the size of the group of cards
      */
@@ -70,5 +86,6 @@ public class Deck
     public void setSize(int givenSize) {
         size = givenSize;
     }
+    
     
 }//end class

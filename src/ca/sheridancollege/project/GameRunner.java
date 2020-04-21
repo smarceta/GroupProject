@@ -42,7 +42,14 @@ public class GameRunner {
   
     System.out.println("\nEnter your bet amount: ");
     double bet = sc.nextDouble();
-       
+    
+   //Testing 
+   System.out.println("\n----Cards In Deck----\n");
+   Deck xyz = new Deck(52);
+   xyz.fillDeck();
+   xyz.shuffle();
+   xyz.printFullDeck();
+   
     }
     
     
