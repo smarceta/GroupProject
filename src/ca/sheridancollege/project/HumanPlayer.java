@@ -14,12 +14,17 @@ public class HumanPlayer extends Player {
     private String name;
     private String gender;
     private int age; 
-    private int chips; 
+    private double chips; 
    
-    
-    HumanPlayer(){
-        
+   
+    HumanPlayer(String name, String gender, int age, double balance){
+       
         super("Human");
+        this.name = name; 
+        this.gender = gender;
+        this.age = age;
+        this.chips = balance;
+        
         
     }
     
@@ -74,15 +79,22 @@ public class HumanPlayer extends Player {
     /**
      * @return the chips
      */
-    public int getChips() {
+    public double getChips() {
         return chips;
     }
 
     /**
      * @param chips the chips to set
      */
-    public void setChips(int chips) {
+    public void setChips(double chips) {
         this.chips = chips;
+    }
+    
+    public String toString(){
+        
+       String playerInfo = String.format("Name: \t%10s\nGender: \t%s\nAge: \t%10d\nBalance: \t%f\n", getName(), getGender(), getAge(), getChips());
+       
+       return playerInfo;
     }
     
 }

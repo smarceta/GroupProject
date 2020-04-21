@@ -12,7 +12,8 @@ package ca.sheridancollege.project;
 public class BlackjackGame extends Game {
 
     BlackjackGame(){
-        super("Blackjack");
+     
+    super("Blackjack");
     }
     
     @Override
