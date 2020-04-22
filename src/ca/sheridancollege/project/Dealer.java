@@ -5,32 +5,36 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Cloud
  */
 public class Dealer extends Player{
     
+    ArrayList<BlackjackCard> dealerHand = new ArrayList<>();
+    int dealerValue = 0;
+    int aceAmount = 0;
+    Card[] dealerHandA;
+    
+    
     Dealer(){
-        
         super("Dealer");
-        
+   
     }
     
-    public BlackjackCard draw(){
+    public BlackjackCard addCard(Deck deck){
         
-        Deck deckobj = new Deck();
-        
-        deckobj.fillDeck();
-        
-        return deckobj.drawCard();
- 
+        dealerHand.add(deck.drawCard());
+        dealerHand.add(deck.drawCard());
+        return dealerHand.get(1);
     }
+    
+    
     
     @Override
     public void play() {
-        
-        
         
     }
     

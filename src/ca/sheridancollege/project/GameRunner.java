@@ -47,12 +47,14 @@ public class GameRunner {
    System.out.println("\n----Cards In Deck----\n");
    Deck xyz = new Deck();
    xyz.fillDeck();
-   xyz.shuffle();
+   //xyz.shuffle();
    xyz.printFullDeck();
    System.out.println(xyz.drawCard());
    
+   //Testing to see if dealer can draw card
+   System.out.println("\n----Dealer Initial Card----\n");
    Dealer abc = new Dealer();
-   System.out.println(abc.draw());
+   System.out.println(abc.addCard(xyz));
    
     }
     

@@ -68,7 +68,7 @@ public class BlackjackCard extends Card {
     @Override
      public String toString() {
       
-     String cardDisplay = String.format("-----Your Card-----\n\nSuit: \t%s\nRank: \t%s\nValue: \t%d ", super.getSuit(), super.getRank(), getValue());
+     String cardDisplay = String.format("------- Card -------\n\nSuit: \t%s\nRank: \t%s\nValue: \t%d ", super.getSuit(), super.getRank(), getValue());
      
      return cardDisplay;
     }   

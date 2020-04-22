@@ -23,6 +23,7 @@ public class Hand {
     
     Hand(Deck deck){
         
+        
         playerHand = new ArrayList<>();
         
     }
