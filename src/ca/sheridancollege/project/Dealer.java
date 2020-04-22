@@ -24,8 +24,7 @@ public class Dealer extends Player{
         deckobj.fillDeck();
         
         return deckobj.drawCard();
-       
-        
+ 
     }
     
     @Override

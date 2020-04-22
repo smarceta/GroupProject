@@ -30,11 +30,11 @@ public class Deck
       
         deck = new ArrayList<>();
         
-        for(int i = 0; i < rank.length; i++){
+        for(int i = 0; i < suit.length; i++){
             
-            for(int j =0; j < suit.length; j++){
+            for(int j =0; j < rank.length; j++){
                 
-            deck.add(new BlackjackCard(rank[i], suit[j])); 
+            deck.add(new BlackjackCard(suit[i], rank[j])); 
             
             }
          }     

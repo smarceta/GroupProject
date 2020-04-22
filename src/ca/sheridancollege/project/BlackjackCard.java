@@ -10,16 +10,14 @@ package ca.sheridancollege.project;
  */
 public class BlackjackCard extends Card {
 
-    private int value = 0; 
+    private int value; 
     
     BlackjackCard(String suit, String Rank){
         
         super();
         super.setSuit(suit);
         super.setRank(Rank);
-        setValue(value);
-        
-        
+        setValue(Rank);
     }
 
     /**
@@ -30,52 +28,47 @@ public class BlackjackCard extends Card {
     }
 
     //modify this - probably use switch statement 
-    public int setValue(int value) {
-        this.value = value;
+    public final void setValue(String rank) {
+ 
         
-        String x = getRank();
         
-        switch (x){
+        switch (rank){
             
-            case "2": value = 2;
+            case "2":  value = 2;
             break;
-            case "3": value = 3;
+            case "3":  value = 3;
             break;
-            case "4": value = 4;
+            case "4":  value = 4;
             break;
-            case "5": value = 5;
+            case "5":  value = 5;
             break;
-            case "6": value = 6;
+            case "6":  value = 6;
             break;
-            case "7": value = 7;
+            case "7":  value = 7;
             break;
-            case "8": value = 8;
+            case "8":  value = 8;
             break;
-            case "9": value = 9;
+            case "9":  value = 9;
             break;
             case "10": value = 10;
             break;
-            case "J": value = 10;
+            case "J":  value = 10;
             break;
-            case "Q": value = 10;
+            case "Q":  value = 10;
             break;
-            case "K": value = 10;
+            case "K":  value = 10;
             break;
-            case "A": value = 11;
+            case "A":  value = 11;
             break;
-            
+            default: value = 0;
         }
-         
-        
-        
-        return value;
                  
     }
     
     @Override
      public String toString() {
       
-     String cardDisplay = String.format("-----Your Card-----\n\nSuit: \t%s\nRank: \t%s\nValue: \t%d ", super.getSuit(), super.getRank(), value);
+     String cardDisplay = String.format("-----Your Card-----\n\nSuit: \t%s\nRank: \t%s\nValue: \t%d ", super.getSuit(), super.getRank(), getValue());
      
      return cardDisplay;
     }   
