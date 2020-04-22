@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Dealer extends Player {
 
-    ArrayList<BlackJackCard> dealerHand = new ArrayList<>();
+    ArrayList<BlackjackCard> dealerHand = new ArrayList<>();
     int dealerValue = 0;
     int aceAmount = 0;
     Card[] dealerHandA;
@@ -23,7 +23,7 @@ public class Dealer extends Player {
 
     }
 
-    public BlackJackCard addCard(Deck deck) {
+    public BlackjackCard addCard(Deck deck) {
 
         dealerHand.add(deck.drawCard());
         dealerHand.add(deck.drawCard());
@@ -40,7 +40,7 @@ public class Dealer extends Player {
 
     public void dealerHandValue(Deck deck) {
         
-        BlackJackCard bjc = new BlackJackCard();
+        
         if (dealerValue < 17) {
             dealerHand.add(deck.drawCard());
         } else if (dealerValue >= 17) {
