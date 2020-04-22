@@ -5,6 +5,7 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -12,36 +13,21 @@ import java.util.Scanner;
  * @author Cloud
  */
 public class GameRunner {
-    Scanner sc = new Scanner(System.in);  
+   
     
     public static void main(String [] args) {
  
       
     Scanner sc = new Scanner(System.in);  
     
-    System.out.println("Welcome to Blackjack --- Insert Opening Message");
-    
-    //GameRunner prompt = new GameRunner();
-    
-    //  prompt.playerInfoInput();    
-    
-    System.out.print("Please enter your name: ");
-    String name = sc.nextLine();
-    
-    System.out.print("Please enter your gender: ");
-    String gender = sc.nextLine();
-    
-    System.out.print("Please enter your age: ");
-    int age = sc.nextInt();
-    
-    System.out.print("Please enter your balance: ");
-    double balance = sc.nextDouble();
-    HumanPlayer hPlayer = new HumanPlayer(name, gender, age, balance);
+    System.out.println("Welcome to Blackjack --- Insert Opening Message");  
+
+    HumanPlayer hPlayer = new HumanPlayer(nameCheck(sc), genderCheck(sc), ageCheck(sc), balanceCheck(sc));
     
     System.out.println("\n----Information Summary----\n" + hPlayer.toString());
-  
-    System.out.println("\nEnter your bet amount: ");
-    double bet = sc.nextDouble();
+    
+    System.out.println("\n----Bet Status----\n");
+    System.out.println("Bet: " + betCheck(sc, hPlayer.getChips()));
     
    //Testing 
    System.out.println("\n----Cards In Deck----\n");
@@ -54,28 +40,84 @@ public class GameRunner {
    //Testing to see if dealer can draw card
    System.out.println("\n----Dealer Initial Card----\n");
    Dealer abc = new Dealer();
-   System.out.println(abc.addCard(xyz));
+   //System.out.println(abc.addCard(xyz));
+   //System.out.println(abc.dealersPlay());
+   System.out.println(abc.play2(xyz));
+   
+   //System.out.println(abc.dealerLastCardDrawn(xyz));
    
     }
     
+
     
-    //Allows player to populate player object
-   /* public void playerInfoInput(){
-    System.out.print("Please enter your name: ");
-    String name = sc.nextLine();
+    public static String nameCheck(Scanner sc){
+        
+        String name = "";
+        System.out.print("Please enter you name: ");
+        name = sc.nextLine();
+        
+        return name;
+        
+    }    
     
-    System.out.print("Please enter your gender: ");
-    String gender = sc.nextLine();
-    
-    System.out.print("Please enter your age: ");
-    int age = sc.nextInt();
-    
-    System.out.print("Please enter your balance: ");
-    double balance = sc.nextDouble();
-    HumanPlayer hPlayer = new HumanPlayer(name, gender, age, balance);
-    
-    System.out.println("\n----Information Summary----\n" + hPlayer.toString());
+    //crashes at exception instead of looping again
+    public static int ageCheck(Scanner sc){
+        
+        int age = 0;
+        int x = 0;
+        do{    
+        
+        System.out.print("Please enter you age: ");
+            
+        try{
+            age = sc.nextInt();
+            if(age < 18){
+            System.out.println("Sorry, you must be 18 or older to play this game!");
+            System.exit(0);
+            }else 
+                x = 1;
+         
+        }catch(Exception e){  
+            System.out.println("Invalid entry, try again");
+            age = sc.nextInt();
+            }
+        return age;
+        
+        }while(x == 0);
+        
     }
-    
-  */  
+    //just prompt for now
+    public static String genderCheck(Scanner sc){
+        
+        String gender = "";
+        System.out.print("Please enter you gender: ");
+        gender = sc.nextLine();
+        
+        return gender;
+    }
+    //just prompt for now
+    public static double balanceCheck(Scanner sc){
+        
+        double balance = 0;
+        System.out.print("Please enter you initial balance: ");
+        balance = sc.nextDouble();
+        
+        return balance;
+    }
+    //just prompt for now - also makes sure bet is not negative DOES NOT LOOP YET
+    public static double betCheck(Scanner sc, double balance){
+        
+        double bet = 0;
+        
+        System.out.print("Enter your bet amount: ");
+        
+        bet = sc.nextDouble();
+ 
+        if(bet < balance || bet <= 0){
+            System.out.println("Insufficient Funds");
+            bet = 0;
+        }      
+        return bet;
+    }
+
 }

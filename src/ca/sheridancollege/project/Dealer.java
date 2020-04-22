@@ -24,15 +24,75 @@ public class Dealer extends Player{
    
     }
     
-    public BlackjackCard addCard(Deck deck){
+    //PRINT DEALERS INITIAL CARD
+    public BlackjackCard initialCard(Deck deck){
         
         dealerHand.add(deck.drawCard());
-        dealerHand.add(deck.drawCard());
-        return dealerHand.get(1);
+        
+        return dealerHand.get(0);
     }
     
+    //ADD A CARD TO THE DEALERS HAND
+    public void addHand(Deck deck){
+        
+        dealerHand.add(deck.drawCard());
+    }
     
+    //TESTING IF STATEMENTS USING DEALERS HAND METHOD AND GETTING VALUE FROM HAND
+    public String play2(Deck deck){
+        
+        addHand(deck);
+        addHand(deck);
+        
+        
+        String output = "";
+        int x = 0; 
+        int y = 0;
+        
+        for(int i = 0; i < dealerHand.size(); i++){
+            
+            y = dealerHand.get(i).getValue();
+            x += dealerHand.get(i).getValue();
+            
+          if(x < 17){
+              
+              addHand(deck);     
+              output += "Card " + i + " value: " + y + "\r";
+          
+          }else{
+              
+              output += "----Last Card Drawn----\r" + dealerLastCardDrawn(deck);   
+          }              
+        }
+        
+        return output;
+    }
+       /* int a = dealerHand.get(0).getValue();
+        
+        if(a < 16){
+            
+            addHand(deck);
+            System.out.println("Card Added to Hand " + a);
+        }
+        
+        int b = dealerHand.get(1).getValue();
+        int c = a + b;
+        
+        if(c <= 16){
+           addHand(deck);
+           System.out.println("Card Added to Hand " + b); 
+        }
+        return c; 
+    }*/
     
+        public BlackjackCard dealerLastCardDrawn(Deck deck){
+        if(dealerValue < 17){
+           
+            dealerValue += dealerHand.get(dealerHand.size()-1).getValue();
+        }
+        return dealerHand.get(dealerHand.size()-1);
+    }
+        
     @Override
     public void play() {
         

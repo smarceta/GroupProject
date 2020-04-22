@@ -92,7 +92,7 @@ public class HumanPlayer extends Player {
     
     public String toString(){
         
-       String playerInfo = String.format("Name: \t%10s\nGender: \t%s\nAge: \t%10d\nBalance: \t%f\n", getName(), getGender(), getAge(), getChips());
+       String playerInfo = String.format("Name:\t%11s\nGender: \t%s\nAge: \t%11d\nBalance: \t%f\n", getName(), getGender(), getAge(), getChips());
        
        return playerInfo;
     }
