@@ -38,16 +38,23 @@ public class Dealer extends Player {
 
     }
 
-    public BlackJackCard dealerHandValue(Deck deck) {
+    public void dealerHandValue(Deck deck) {
+        
+        BlackJackCard bjc = new BlackJackCard();
         if (dealerValue < 17) {
             dealerHand.add(deck.drawCard());
         } else if (dealerValue >= 17) {
+            
             dealerValue = 0;
+            
             for (int i = 0; i < dealerHand.size(); i++) {
                 dealerValue += dealerHand.get(i).getValue();
+                dealerHand.get(i);
             }
+            
+            
         }
-        return dealerHand.get(dealerHand.size() - 1);
+        
     }
 
     @Override
