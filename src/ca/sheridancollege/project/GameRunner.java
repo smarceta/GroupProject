@@ -45,10 +45,14 @@ public class GameRunner {
     
    //Testing 
    System.out.println("\n----Cards In Deck----\n");
-   Deck xyz = new Deck(52);
+   Deck xyz = new Deck();
    xyz.fillDeck();
    xyz.shuffle();
    xyz.printFullDeck();
+   System.out.println(xyz.drawCard());
+   
+   Dealer abc = new Dealer();
+   System.out.println(abc.draw());
    
     }
     

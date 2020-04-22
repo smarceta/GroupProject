@@ -10,13 +10,14 @@ package ca.sheridancollege.project;
  */
 public class BlackjackCard extends Card {
 
-    private int value; 
+    private int value = 0; 
     
     BlackjackCard(String suit, String Rank){
         
         super();
         super.setSuit(suit);
         super.setRank(Rank);
+        setValue(value);
         
         
     }
@@ -74,7 +75,7 @@ public class BlackjackCard extends Card {
     @Override
      public String toString() {
       
-     String cardDisplay = String.format("-----Your Card-----\n\nSuit: \t%s\nRank: \t%d\nValue: \t%d ", super.getSuit(), super.getRank(), value);
+     String cardDisplay = String.format("-----Your Card-----\n\nSuit: \t%s\nRank: \t%s\nValue: \t%d ", super.getSuit(), super.getRank(), value);
      
      return cardDisplay;
     }   

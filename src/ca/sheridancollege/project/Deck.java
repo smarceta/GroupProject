@@ -16,23 +16,19 @@ public class Deck
 {
    
     //The group of cards, stored in an ArrayList
-    private ArrayList <Card> deck;
+    private ArrayList <BlackjackCard> deck;
     final String[] suit = {"Spades", "Diamonds", "Clubs", "Hearts"};
     final String[] rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q",
                            "K", "A"};
     
     
-    private int size = 52;//the size of the grouping    
-    
-    public Deck(int givenSize)
-    {
-        size = givenSize;
+    public Deck(){
+        
     }
-    
-   
+
     public void fillDeck(){
       
-        deck = new ArrayList<Card>();
+        deck = new ArrayList<>();
         
         for(int i = 0; i < rank.length; i++){
             
@@ -41,51 +37,35 @@ public class Deck
             deck.add(new BlackjackCard(rank[i], suit[j])); 
             
             }
-         }
-        
-        
+         }     
     }
+    
     
     //TESTING TO SEE IF IT WORKS - Remove this later
     public void printFullDeck(){
         
-    for(Card x : deck){
-        System.out.println(x.getSuit() + " of " + x.getRank());
+        for(Card x : deck){
+             System.out.println(x.getSuit() + " of " + x.getRank());
+        }   
     }
-}
     
     
     /**
      * A method that will get the group of cards as an ArrayList
      * @return the group of cards.
      */
-    public ArrayList<Card> showCards()
-    {
-        return deck;
-    }
     
-    public void shuffle()
-    {
+    public void shuffle(){
+        
         Collections.shuffle(deck);
     }
     
-    public void Deal(int cardAmount){
-     
+    public BlackjackCard drawCard(){
+        
+        shuffle();
+        return deck.get(0);
+        
     }
     
-    /**
-     * @return the size of the group of cards
-     */
-    public int getSize() {
-        return size;
-    }
-
-    /**
-     * @param givenSize the max size for the group of cards
-     */
-    public void setSize(int givenSize) {
-        size = givenSize;
-    }
-    
-    
+        
 }//end class

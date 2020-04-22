@@ -17,8 +17,21 @@ public class Dealer extends Player{
         
     }
     
+    public BlackjackCard draw(){
+        
+        Deck deckobj = new Deck();
+        
+        deckobj.fillDeck();
+        
+        return deckobj.drawCard();
+       
+        
+    }
+    
     @Override
     public void play() {
+        
+        
         
     }
     
