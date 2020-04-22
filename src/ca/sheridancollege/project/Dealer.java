@@ -6,7 +6,6 @@
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  *
@@ -14,24 +13,39 @@ import java.util.Random;
  */
 public class Dealer extends Player{
     
-    Dealer(){        
-        super("Dealer");        
+    ArrayList<BlackjackCard> dealerHand = new ArrayList<>();
+    int dealerValue = 0;
+    int aceAmount = 0;
+    Card[] dealerHandA;
+    
+    
+    Dealer(){
+        super("Dealer");
+   
     }
     
-    public void draw(){
-        Deck deck = new Deck(52);
-        deck.fillDeck();
-        deck.shuffle();
-        //ArrayList list = deck.deck;
-        //Random random = new Random();
-        //int randomNum = random.nextInt((52 - 1) + 1) + 1;
-        System.out.println(deck.deck.get(0));
-        //System.out.println(list.indexOf(randomNum));
+    public BlackjackCard addCard(Deck deck){
+        
+        dealerHand.add(deck.drawCard());
+        dealerHand.add(deck.drawCard());        
+        dealerValue = dealerHand.get(0).getValue() + dealerHand.get(1).getValue();
+        return dealerHand.get(1);
+        
+        
+    }
+    
+    public BlackjackCard dealerHandValue(Deck deck){
+        if(dealerValue < 17){
+            dealerHand.add(deck.drawCard());
+            dealerValue += dealerHand.get(dealerHand.size()-1).getValue();
+        }
+        return dealerHand.get(dealerHand.size()-1);
     }
     
     @Override
     public void play() {
-        System.out.println("yo");
+        
     }
     
 }
+
