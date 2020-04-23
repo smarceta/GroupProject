@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+-This Class is resposible for running the game (Main Method)
+-All the methods from the other classes are put together here to make the game
+run smoothly and without errors
+*/
 package ca.sheridancollege.project;
 
 import java.util.Scanner;
