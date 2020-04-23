@@ -1,9 +1,12 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package ca.sheridancollege.project;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +17,11 @@ public class HumanPlayer extends Player {
     private String name;
     private String gender;
     private int age; 
-    private double chips; 
+    private double chips;
+    ArrayList<BlackjackCard> playerHand = new ArrayList<>();
+    private int playerValue;
+    private int action;
+    
    
    
     HumanPlayer(String name, String gender, int age, double balance){
@@ -28,11 +35,69 @@ public class HumanPlayer extends Player {
         
     }
     
+    public void addPlayerHand(Deck deck){
+        
+        playerHand.add(deck.drawCard());
+    }
+    
+    public void PlayerHit(int num){        
+            this.action = num;       
+               
+    }
+    
+    public String playerCardResult(Deck deck){
+        
+        addPlayerHand(deck);  
+        
+        String output = "";
+        int x = 0; 
+        int y = 0;
+        for(int i = 0; i < playerHand.size(); i++){
+            
+            y = playerHand.get(i).getValue();
+            x += y;
+            output += "Card " + (i+1) + " value: " + y + "\n";
+                    
+            
+            
+            if(action == 1){              
+              addPlayerHand(deck);
+              
+          } else if(action == 2){
+                System.out.println(output);
+          }  else if(action == 3){
+                System.out.println("Thanks for playing!");
+                System.exit(0);
+          }
+        }
+        
+        return output;
+    }
+    
     @Override
     public void play(){
         System.out.println("xys");
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * @return the name
@@ -92,9 +157,23 @@ public class HumanPlayer extends Player {
     
     public String toString(){
         
-       String playerInfo = String.format("Name: \t%10s\nGender: \t%s\nAge: \t%10d\nBalance: \t%f\n", getName(), getGender(), getAge(), getChips());
+       String playerInfo = String.format("Name:\t%11s\nGender: \t%s\nAge: \t%11d\nBalance: \t%f\n", getName(), getGender(), getAge(), getChips());
        
        return playerInfo;
+    }
+
+    /**
+     * @return the playerValue
+     */
+    public int getPlayerValue() {
+        return playerValue;
+    }
+
+    /**
+     * @param playerValue the playerValue to set
+     */
+    public void setPlayerValue(int playerValue) {
+        this.playerValue = playerValue;
     }
     
 }
