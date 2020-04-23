@@ -18,6 +18,7 @@ public class HumanPlayer extends Player {
     private int age; 
     private double chips;
     ArrayList<BlackjackCard> playerHand = new ArrayList<>();
+    private int playerValue;
     
    
    
@@ -48,6 +49,8 @@ public class HumanPlayer extends Player {
             
             y = playerHand.get(i).getValue();
             x += y;
+            setPlayerValue(x);
+            
             output += "Card " + (i+1) + " value: " + y + "\n";
           if(x < 17){
               
@@ -144,6 +147,20 @@ public class HumanPlayer extends Player {
        String playerInfo = String.format("Name:\t%11s\nGender: \t%s\nAge: \t%11d\nBalance: \t%f\n", getName(), getGender(), getAge(), getChips());
        
        return playerInfo;
+    }
+
+    /**
+     * @return the playerValue
+     */
+    public int getPlayerValue() {
+        return playerValue;
+    }
+
+    /**
+     * @param playerValue the playerValue to set
+     */
+    public void setPlayerValue(int playerValue) {
+        this.playerValue = playerValue;
     }
     
 }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Dealer extends Player{
     
     ArrayList<BlackjackCard> dealerHand = new ArrayList<>();
-    int dealerValue = 0;
+    private int dealerValue = 0;
     int aceAmount = 0;
     
     
@@ -43,16 +43,28 @@ public class Dealer extends Player{
         addHand(deck);  
         
         String output = "";
+        String z = "";
         int x = 0; 
         int y = 0;
+        
         for(int i = 0; i < dealerHand.size(); i++){
             
             y = dealerHand.get(i).getValue();
+            z = dealerHand.get(i).getSuit();
             x += y;
-            output += "Card " + (i+1) + " value: " + y + "\n";
+            
+            setDealerValue(x);
+            
+            output += "Card " + (i+1) + "\n value: " + y + " Suit: " + z +"\nTotal: " + x + "\n\n";
           if(x < 17){
               
               addHand(deck);     
+          }else if(x == 21){
+              
+              output += "\n HOUSE WINS";
+          }else if (x > 21){
+              
+              output += "\n HOUSE BUST";
           }          
         }
         
@@ -61,9 +73,9 @@ public class Dealer extends Player{
 
     
         public BlackjackCard dealerLastCardDrawn(Deck deck){
-        if(dealerValue < 17){
+        if(getDealerValue() < 17){
            
-            dealerValue += dealerHand.get(dealerHand.size()-1).getValue();
+            setDealerValue(getDealerValue() + dealerHand.get(dealerHand.size()-1).getValue());
         }
         return dealerHand.get(dealerHand.size()-1);
     }
@@ -71,6 +83,20 @@ public class Dealer extends Player{
     @Override
     public void play() {
         
+    }
+
+    /**
+     * @return the dealerValue
+     */
+    public int getDealerValue() {
+        return dealerValue;
+    }
+
+    /**
+     * @param dealerValue the dealerValue to set
+     */
+    public void setDealerValue(int dealerValue) {
+        this.dealerValue = dealerValue;
     }
     
 }

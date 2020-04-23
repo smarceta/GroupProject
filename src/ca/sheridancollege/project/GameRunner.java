@@ -48,6 +48,14 @@ public class GameRunner {
    System.out.println(hPlayer.playerCardResult(xyz));
    //System.out.println(abc.dealerLastCardDrawn(xyz));
    
+   
+   
+   System.out.println("----FINAL VALUES----");
+   ///FETCHING DEALER VALUE WE SET
+   System.out.println("Dealer value: " + abc.getDealerValue());
+   
+   ///FETCHING PLAYER VALUE WE SET
+   System.out.println("Player value: " + hPlayer.getPlayerValue());
     }
     
 
