@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+-This class is resposible for the human player
+-It takes all the data required to make a new player
+-It is responsible for all the methods that helps the players make his bets and moves.
  * @modifier cloud
  */
 package ca.sheridancollege.project;

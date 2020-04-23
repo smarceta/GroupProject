@@ -21,7 +21,7 @@ public class GameRunner {
       
     Scanner sc = new Scanner(System.in);  
     
-    System.out.println("Welcome to Blackjack --- Insert Opening Message");  
+    System.out.println("--- Welcome to Blackjack --- \n");  
 
     HumanPlayer hPlayer = new HumanPlayer(nameCheck(sc), genderCheck(sc), ageCheck(sc), balanceCheck(sc));
     

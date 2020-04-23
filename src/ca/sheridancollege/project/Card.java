@@ -1,14 +1,12 @@
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
- */
+/*
+-The Card class is the parent class for BlackjackCard class
+-It contains the Suits and Ranks that will make the cards
+*/
 package ca.sheridancollege.project;
 
 /**
  * A class to be used as the base Card class for the project. Must be general
- * enough to be instantiated for any Card game. Students wishing to add to the code 
- * should remember to add themselves as a modifier.
+ * enough to be instantiated for any Card game. 
  * @author dancye, 2018
  * @modifier cloud
  */

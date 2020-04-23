@@ -1,8 +1,9 @@
 /**
  * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
- * *@modifier cloud
+/*
+-This class is the parent class for HumanPlayer and Dealer
+-It takes the players ID
+ *@modifier cloud
  */
 package ca.sheridancollege.project;
 

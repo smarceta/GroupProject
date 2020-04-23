@@ -1,5 +1,8 @@
 /*
  *@modifier cloud
+-This class is responsible for the dealer moves.
+-It give the dealer the cards, and if the dealer should takes more cards or not.
+-Counts the total value of the dealers cards.
  */
 package ca.sheridancollege.project;
 
