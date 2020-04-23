@@ -24,25 +24,19 @@ public class BlackjackGame extends Game {
         int dealerVal = dealer.getDealerValue();
         int playerVal = player.getPlayerValue();
         
-        boolean playerWin = false;
-        boolean dealerWin = false;
+
         
         int winner = 0;
         
         if(dealerVal>playerVal && dealerVal <= 21){
-            playerWin = false;
-            dealerWin = true;
-            
+      
             winner = 1;
             
-        } else if(playerVal>dealerVal && playerVal <= 21){
-            playerWin = true;
-            dealerWin = false;
+        } else if(playerVal>dealerVal && playerVal <= 21){  
             
             winner = 2;
-        }
-        
-        if(playerVal > 21 && dealerVal > 21){
+            
+        }else if (playerVal > 21 && dealerVal > 21){
          
            winner = 3; 
         }
