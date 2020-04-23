@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,9 +17,8 @@ public class HumanPlayer extends Player {
     private String gender;
     private int age; 
     private double chips;
-    ArrayList<BlackjackCard> playerHand = new ArrayList<>();
+    ArrayList<BlackJackCard> playerHand = new ArrayList<>();
     private int playerValue;
-    private int action;
     
    
    
@@ -35,43 +33,34 @@ public class HumanPlayer extends Player {
         
     }
     
-    public void addPlayerHand(Deck deck){
+    public void playerHit(Deck deck){
         
         playerHand.add(deck.drawCard());
-    }
-    
-    public void PlayerHit(int num){        
-            this.action = num;       
-               
+        
     }
     
     public String playerCardResult(Deck deck){
         
-        addPlayerHand(deck);  
+        playerHit(deck);  
         
         String output = "";
+        String z = "";
         int x = 0; 
         int y = 0;
+        
         for(int i = 0; i < playerHand.size(); i++){
             
             y = playerHand.get(i).getValue();
+            z = playerHand.get(i).getSuit();
             x += y;
-            output += "Card " + (i+1) + " value: " + y + "\n";
-                    
+            setPlayerValue(x);
             
-            
-            if(action == 1){              
-              addPlayerHand(deck);
-              
-          } else if(action == 2){
-                System.out.println(output);
-          }  else if(action == 3){
-                System.out.println("Thanks for playing!");
-                System.exit(0);
-          }
-        }
+            output += "Card " + (i+1) + "\nValue: " + y + " Suit: " + z +"\nTotal: " + x + "\n\n ";
         
-        return output;
+        
+        
+     }
+        return output + "\n =============== \n";
     }
     
     @Override
