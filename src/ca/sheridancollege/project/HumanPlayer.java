@@ -33,19 +33,21 @@ public class HumanPlayer extends Player {
         
     }
     
-    public void addPlayerHand(Deck deck){
+    public void playerHit(Deck deck){
         
         playerHand.add(deck.drawCard());
+        
     }
     
     public String playerCardResult(Deck deck){
         
-        addPlayerHand(deck);  
+        playerHit(deck);  
         
         String output = "";
         String z = "";
         int x = 0; 
         int y = 0;
+        
         for(int i = 0; i < playerHand.size(); i++){
             
             y = playerHand.get(i).getValue();
@@ -54,12 +56,10 @@ public class HumanPlayer extends Player {
             setPlayerValue(x);
             
             output += "Card " + (i+1) + "\nValue: " + y + " Suit: " + z +"\nTotal: " + x + "\n\n";
-          if(x < 17){
-              
-              addPlayerHand(deck);     
-          }          
-        }
         
+        
+        
+     }
         return output;
     }
     

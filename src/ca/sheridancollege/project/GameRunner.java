@@ -56,9 +56,32 @@ public class GameRunner {
    
    ///FETCHING PLAYER VALUE WE SET
    System.out.println("Player value: " + hPlayer.getPlayerValue());
+   
+   System.out.println(playerResults(sc, hPlayer, xyz));
+   
     }
     
+    
 
+    public static String playerResults(Scanner sc, HumanPlayer hPlayer, Deck deck){
+        
+        String storeString = "";
+        int userValue = 1;
+        
+      do{ 
+        System.out.println("1 == Hit ---- 2 == Stay");  
+        userValue = sc.nextInt();
+        
+        if(userValue == 1) {
+            
+            storeString += hPlayer.playerCardResult(deck);  
+            System.out.println("1 == Hit ---- 2 == Stay");  
+            userValue = sc.nextInt();
+        }
+
+        return storeString;
+      }while(userValue == 1);
+    }
     
     public static String nameCheck(Scanner sc) {
 
