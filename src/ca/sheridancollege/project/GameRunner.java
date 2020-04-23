@@ -55,12 +55,32 @@ public class GameRunner {
    ///FETCHING PLAYER VALUE WE SET
    System.out.println("Player value: " + hPlayer.getPlayerValue());
    
+   BlackjackGame bjGame = new BlackjackGame();
    
+   System.out.println(winnerDeclaration(abc, hPlayer, bjGame));
    
     }
     
     
-
+    public static String winnerDeclaration(Dealer dealer, HumanPlayer player, BlackjackGame bjGame){
+        
+        String winner = "The winner is: ";
+        
+        if(bjGame.declareWinner(dealer, player) == 1){
+            
+            winner += " PLAYER WINS";
+            
+        }else if(bjGame.declareWinner(dealer, player) == 2){
+            
+            winner += " DEALER WINS";
+            
+        }else
+            winner +="DRAW";
+       
+        return winner;
+        
+        
+    }
     public static String playerResults(Scanner sc, HumanPlayer hPlayer, Deck deck){
         
         String storeString = "";

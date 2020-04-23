@@ -17,21 +17,48 @@ public class BlackjackGame extends Game {
     }
     
     @Override
-    public void play() {
+
+
+    public int declareWinner(Dealer dealer, HumanPlayer player) {
+        
+        int dealerVal = dealer.getDealerValue();
+        int playerVal = player.getPlayerValue();
+        
+        boolean playerWin = false;
+        boolean dealerWin = false;
+        
+        int winner = 0;
+        
+        if(dealerVal>playerVal && dealerVal <= 21){
+            playerWin = false;
+            dealerWin = true;
+            
+            winner = 1;
+            
+        } else if(playerVal>dealerVal && playerVal <= 21){
+            playerWin = true;
+            dealerWin = false;
+            
+            winner = 2;
+        }
+        
+        if(playerVal > 21 && dealerVal > 21){
+         
+           winner = 3; 
+        }
+        
+        return winner;
+        
+        
         
     }
-
-    public void declareWinner(Dealer dealer, HumanPlayer player) {
+      public void play() {
         
-        dealer.getDealerValue();
-        player.getPlayerValue();
+    }
         
     }
     //zz
 
-    @Override
-    public void declareWinner() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-}
+
+
 
