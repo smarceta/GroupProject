@@ -1,8 +1,8 @@
-/**
- * SYST 17796 Project Winter 2019 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
- */
+/*
+-The Deck class is responsible about making the cards.
+-It allows the BlackjackCard class to use those cards and make their value.
+-It's used to shuffle and fill the deck of cards.
+*/
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
