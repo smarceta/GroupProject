@@ -16,7 +16,6 @@ public class Dealer extends Player{
     ArrayList<BlackjackCard> dealerHand = new ArrayList<>();
     int dealerValue = 0;
     int aceAmount = 0;
-    Card[] dealerHandA;
     
     
     Dealer(){
@@ -39,35 +38,44 @@ public class Dealer extends Player{
     }
     
     //TESTING IF STATEMENTS USING DEALERS HAND METHOD AND GETTING VALUE FROM HAND
-    public String play2(Deck deck){
+    public String dealerCardResult(Deck deck){
         
-        addHand(deck);
-        addHand(deck);
-        
+        addHand(deck);  
         
         String output = "";
         int x = 0; 
         int y = 0;
-        
         for(int i = 0; i < dealerHand.size(); i++){
             
             y = dealerHand.get(i).getValue();
-            x += dealerHand.get(i).getValue();
-            
+            x += y;
+            output += "Card " + (i+1) + " value: " + y + "\n";
           if(x < 17){
               
               addHand(deck);     
-              output += "Card " + i + " value: " + y + "\r";
-          
-          }else{
-              
-              output += "----Last Card Drawn----\r" + dealerLastCardDrawn(deck);   
-          }              
+          }          
         }
         
         return output;
     }
-       /* int a = dealerHand.get(0).getValue();
+
+    
+        public BlackjackCard dealerLastCardDrawn(Deck deck){
+        if(dealerValue < 17){
+           
+            dealerValue += dealerHand.get(dealerHand.size()-1).getValue();
+        }
+        return dealerHand.get(dealerHand.size()-1);
+    }
+        
+    @Override
+    public void play() {
+        
+    }
+    
+}
+       /*MAYBE USE THIS
+            int a = dealerHand.get(0).getValue();
         
         if(a < 16){
             
@@ -84,18 +92,3 @@ public class Dealer extends Player{
         }
         return c; 
     }*/
-    
-        public BlackjackCard dealerLastCardDrawn(Deck deck){
-        if(dealerValue < 17){
-           
-            dealerValue += dealerHand.get(dealerHand.size()-1).getValue();
-        }
-        return dealerHand.get(dealerHand.size()-1);
-    }
-        
-    @Override
-    public void play() {
-        
-    }
-    
-}

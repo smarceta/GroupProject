@@ -5,6 +5,8 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Cloud
@@ -14,7 +16,9 @@ public class HumanPlayer extends Player {
     private String name;
     private String gender;
     private int age; 
-    private double chips; 
+    private double chips;
+    ArrayList<BlackjackCard> playerHand = new ArrayList<>();
+    
    
    
     HumanPlayer(String name, String gender, int age, double balance){
@@ -28,11 +32,56 @@ public class HumanPlayer extends Player {
         
     }
     
+    public void addPlayerHand(Deck deck){
+        
+        playerHand.add(deck.drawCard());
+    }
+    
+    public String playerCardResult(Deck deck){
+        
+        addPlayerHand(deck);  
+        
+        String output = "";
+        int x = 0; 
+        int y = 0;
+        for(int i = 0; i < playerHand.size(); i++){
+            
+            y = playerHand.get(i).getValue();
+            x += y;
+            output += "Card " + (i+1) + " value: " + y + "\n";
+          if(x < 17){
+              
+              addPlayerHand(deck);     
+          }          
+        }
+        
+        return output;
+    }
+    
     @Override
     public void play(){
         System.out.println("xys");
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * @return the name
