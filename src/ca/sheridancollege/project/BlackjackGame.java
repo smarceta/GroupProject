@@ -9,9 +9,9 @@ package ca.sheridancollege.project;
  *
  * @author Cloud
  */
-public class BlackjackGame extends Game {
+public class BlackJackGame extends Game {
 
-    BlackjackGame(){
+    BlackJackGame(){
      
     super("Blackjack");
     }
@@ -22,8 +22,19 @@ public class BlackjackGame extends Game {
     }
 
     @Override
-    public void declareWinner() {
+    public void declareWinner(Dealer dealer, HumanPlayer player) {
+        
+        int dealerVal = dealer.getDealerValue();
+        int playerVal = player.getPlayerValue();
+        boolean playerWin = false;
+        if(dealerVal>playerVal){
+            playerWin = false;
+        } else if(playerVal>dealerVal){
+            playerWin = true;
+        } else {
+            playerWin = false;
+        }
         
     }
-    
+    //zz
 }
