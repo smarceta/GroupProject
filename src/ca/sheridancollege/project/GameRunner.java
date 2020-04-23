@@ -66,18 +66,27 @@ public class GameRunner {
         String storeString = "";
         int userValue = 1;
         
-      while(userValue == 1){
+      while(hPlayer.getPlayerValue() <= 21){
+        System.out.println("---CURRENT HAND---\n");  
         System.out.println("1 == Hit ---- 2 == Stay");  
         userValue = sc.nextInt();
         
+        
         while(userValue == 1) {
             
-            storeString += hPlayer.playerCardResult(deck);  
-            System.out.println("---CURRENT HAND---\n" + storeString);
+            
+             
+            System.out.println(storeString);
             System.out.println("1 == Hit ---- 2 == Stay");  
             userValue = sc.nextInt();
+            System.out.println("---CURRENT HAND---\n"); 
+            storeString += hPlayer.playerCardResult(deck);
+            if(hPlayer.getPlayerValue() > 21){
+            System.out.println("PLAYER BUST");
+                break;
+            }
         }
-            userValue = 2;
+           
         }
         
       

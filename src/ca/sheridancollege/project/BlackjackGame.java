@@ -21,9 +21,17 @@ public class BlackjackGame extends Game {
         
     }
 
-    @Override
-    public void declareWinner() {
+    public void declareWinner(Dealer dealer, HumanPlayer player) {
+        
+        dealer.getDealerValue();
+        player.getPlayerValue();
         
     }
     //zz
+
+    @Override
+    public void declareWinner() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
+
