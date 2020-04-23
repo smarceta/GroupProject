@@ -55,7 +55,7 @@ public class Dealer extends Player{
             
             setDealerValue(x);
             
-            output += "Card " + (i+1) + "\n value: " + y + " Suit: " + z +"\nTotal: " + x + "\n\n";
+            output += "Card " + (i+1) + "\nValue: " + y + " Suit: " + z +"\nTotal: " + x + "\n\n";
           if(x < 17){
               
               addHand(deck);     

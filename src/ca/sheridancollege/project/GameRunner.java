@@ -60,74 +60,100 @@ public class GameRunner {
     
 
     
-    public static String nameCheck(Scanner sc){
-        
+    public static String nameCheck(Scanner sc) {
+
         String name = "";
-        System.out.print("Please enter you name: ");
-        name = sc.nextLine();
-        
-        return name;
-        
-    }    
-    
+        do {
+            System.out.print("Please enter you name: ");
+            try {
+                name = sc.nextLine();
+                if (name.matches("[0-9]")) {
+                    System.out.println("You must enter a valid name");
+                    name = sc.nextLine();
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid Name, try again");
+            }
+            return name;
+        } while (name.matches("[0-9]"));
+    }
+
     //crashes at exception instead of looping again
-    public static int ageCheck(Scanner sc){
-        
+    public static int ageCheck(Scanner sc) {
+
         int age = 0;
         int x = 0;
-        do{    
-        
-        System.out.print("Please enter you age: ");
-            
-        try{
-            age = sc.nextInt();
-            if(age < 18){
-            System.out.println("Sorry, you must be 18 or older to play this game!");
-            System.exit(0);
-            }else 
-                x = 1;
-         
-        }catch(Exception e){  
-            System.out.println("Invalid entry, try again");
-            age = sc.nextInt();
+        do {
+
+            System.out.print("Please enter you age: ");
+
+            try {
+                age = sc.nextInt();
+                if (age < 18) {
+                    System.out.println("Sorry, you must be 18 or older to play this game!");
+                    System.exit(0);
+                } else {
+                    x = 1;
+                }
+
+            } catch (Exception e) {
+                System.out.println("Invalid entry, try again");
+                age = sc.nextInt();
             }
-        return age;
-        
-        }while(x == 0);
-        
+            return age;
+
+        } while (x == 0);
+
     }
+
     //just prompt for now
-    public static String genderCheck(Scanner sc){
-        
+    public static String genderCheck(Scanner sc) {
+
         String gender = "";
         System.out.print("Please enter you gender: ");
         gender = sc.nextLine();
-        
         return gender;
     }
+
     //just prompt for now
-    public static double balanceCheck(Scanner sc){
-        
+    public static double balanceCheck(Scanner sc) {
+
         double balance = 0;
         System.out.print("Please enter you initial balance: ");
-        balance = sc.nextDouble();
-        
+        while (balance < 10) {
+            try {
+                balance = sc.nextDouble();
+                if (balance < 10) {
+                    System.out.println("Insufficient balance");
+                    balance = sc.nextDouble();
+                }
+            } catch (Exception e) {
+                System.out.println("Enter a valid balance");
+                balance = sc.nextDouble();
+            }
+        }
         return balance;
     }
-    //just prompt for now - also makes sure bet is not negative DOES NOT LOOP YET
-    public static double betCheck(Scanner sc, double balance){
-        
-        double bet = 0;
-        
-        System.out.print("Enter your bet amount: ");
-        
-        bet = sc.nextDouble();
- 
-        if(bet < balance || bet <= 0){
-            System.out.println("Insufficient Funds");
-            bet = 0;
-        }      
-        return bet;
-    }
 
+    //just prompt for now - also makes sure bet is not negative DOES NOT LOOP YET
+    public static double betCheck(Scanner sc, double balanceCheck) {
+
+        double bet = 0;
+
+        System.out.print("Enter your bet amount: ");
+        while (bet > balanceCheck || bet <= 0) {
+            try {
+                bet = sc.nextDouble();
+                if (bet > balanceCheck || bet <= 0) {
+                    System.out.println("Insufficient Funds");
+                    bet = 0;
+                }
+            } catch (Exception e) {
+                System.out.println("Enter a valid bet amount");
+                bet = sc.nextDouble();
+            }
+        }
+        return bet;
+
+    }
 }

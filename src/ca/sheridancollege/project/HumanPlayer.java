@@ -43,15 +43,17 @@ public class HumanPlayer extends Player {
         addPlayerHand(deck);  
         
         String output = "";
+        String z = "";
         int x = 0; 
         int y = 0;
         for(int i = 0; i < playerHand.size(); i++){
             
             y = playerHand.get(i).getValue();
+            z = playerHand.get(i).getSuit();
             x += y;
             setPlayerValue(x);
             
-            output += "Card " + (i+1) + " value: " + y + "\n";
+            output += "Card " + (i+1) + "\nValue: " + y + " Suit: " + z +"\nTotal: " + x + "\n\n";
           if(x < 17){
               
               addPlayerHand(deck);     
