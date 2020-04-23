@@ -2,6 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ * @modifier cloud
  */
 package ca.sheridancollege.project;
 
@@ -29,25 +30,17 @@ public class GameRunner {
     System.out.println("\n----Bet Status----\n");
     System.out.println("Bet: " + betCheck(sc, hPlayer.getChips()));
     
-   //Testing 
-   System.out.println("\n----Cards In Deck----\n");
+   //Creating card object and filling a deck 
    Deck xyz = new Deck();
    xyz.fillDeck();
-   //xyz.shuffle();
-   xyz.printFullDeck();
-   //System.out.println(xyz.drawCard());
-   
-   //Testing to see if dealer can draw card
-   System.out.println("\n----Dealer Cards----\n");
-   Dealer abc = new Dealer();
-   //System.out.println(abc.addCard(xyz));
-   //System.out.println(abc.dealersPlay());
-   System.out.println(abc.dealerCardResult(xyz));
    
    System.out.println("\n----Player Cards----\n");
    System.out.println(playerResults(sc, hPlayer, xyz));
    
-    
+   System.out.println("\n----Dealer Cards----\n");
+   Dealer abc = new Dealer();
+   System.out.println(abc.dealerCardResult(xyz));
+   
    System.out.println("----FINAL VALUES----");
    ///FETCHING DEALER VALUE WE SET
    System.out.println("Dealer value: " + abc.getDealerValue());
@@ -55,8 +48,8 @@ public class GameRunner {
    ///FETCHING PLAYER VALUE WE SET
    System.out.println("Player value: " + hPlayer.getPlayerValue());
    
-   BlackjackGame bjGame = new BlackjackGame();
    
+   BlackjackGame bjGame = new BlackjackGame();
    System.out.println(winnerDeclaration(abc, hPlayer, bjGame));
    
     }
@@ -75,7 +68,7 @@ public class GameRunner {
             winner += " DEALER WINS";
             
         }else
-            winner +="DRAW";
+            winner += "DRAW";
        
         return winner;
         
@@ -86,8 +79,7 @@ public class GameRunner {
         String storeString = "";
         int userValue = 1;
         
-      while(hPlayer.getPlayerValue() <= 21){
-        System.out.println("---CURRENT HAND---\n");  
+      while(hPlayer.getPlayerValue() <= 21){  
         System.out.println("1 == Hit ---- 2 == Stay");  
         userValue = sc.nextInt();
         

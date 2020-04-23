@@ -1,16 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *@modifier cloud
  */
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Cloud
- */
+
 public class Dealer extends Player{
     
     ArrayList<BlackjackCard> dealerHand = new ArrayList<>();
@@ -72,19 +67,14 @@ public class Dealer extends Player{
     }
 
     
-        public BlackjackCard dealerLastCardDrawn(Deck deck){
-        if(getDealerValue() < 17){
+    public BlackjackCard dealerLastCardDrawn(Deck deck){
+      if(getDealerValue() < 17){
            
             setDealerValue(getDealerValue() + dealerHand.get(dealerHand.size()-1).getValue());
         }
         return dealerHand.get(dealerHand.size()-1);
     }
         
-    @Override
-    public void play() {
-        
-    }
-
     /**
      * @return the dealerValue
      */
@@ -100,21 +90,3 @@ public class Dealer extends Player{
     }
     
 }
-       /*MAYBE USE THIS
-            int a = dealerHand.get(0).getValue();
-        
-        if(a < 16){
-            
-            addHand(deck);
-            System.out.println("Card Added to Hand " + a);
-        }
-        
-        int b = dealerHand.get(1).getValue();
-        int c = a + b;
-        
-        if(c <= 16){
-           addHand(deck);
-           System.out.println("Card Added to Hand " + b); 
-        }
-        return c; 
-    }*/

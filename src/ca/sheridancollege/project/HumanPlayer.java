@@ -2,6 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ * @modifier cloud
  */
 package ca.sheridancollege.project;
 
@@ -60,33 +61,9 @@ public class HumanPlayer extends Player {
         
         
      }
-        return output;
+        return output + "\n =============== \n";
     }
-    
-    @Override
-    public void play(){
-        System.out.println("xys");
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
 
     /**
      * @return the name
@@ -143,13 +120,7 @@ public class HumanPlayer extends Player {
     public void setChips(double chips) {
         this.chips = chips;
     }
-    
-    public String toString(){
-        
-       String playerInfo = String.format("Name:\t%11s\nGender: \t%s\nAge: \t%11d\nBalance: \t%f\n", getName(), getGender(), getAge(), getChips());
-       
-       return playerInfo;
-    }
+ 
 
     /**
      * @return the playerValue
@@ -165,4 +136,11 @@ public class HumanPlayer extends Player {
         this.playerValue = playerValue;
     }
     
+    @Override
+    public String toString(){
+        
+       String playerInfo = String.format("Name:\t%11s\nGender: \t%s\nAge: \t%11d\nBalance: \t%f\n", getName(), getGender(), getAge(), getChips());
+       
+       return playerInfo;
+    }
 }
